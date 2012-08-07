@@ -1,5 +1,17 @@
 GNU Libtasn1 NEWS                                     -*- outline -*-
 
+* Noteworthy changes in release 2.13 (2012-05-31) [stable]
+- Updated fix for DER decoding issue to not depend on specific compilers.
+- Updated DER decoding check to apply to short form integers as well.
+
+* Noteworthy changes in release 2.12 (2012-03-19) [stable]
+- Cleanup license headers.
+- build: Update gnulib files.
+- Corrected DER decoding issue (reported by Matthew Hall).
+  Added self check to detect the problem, see tests/Test_overflow.c.
+  This problem can lead to at least remotely triggered crashes, see
+  further analysis on the libtasn1 mailing list.
+
 * Noteworthy changes in release 2.11 (2011-11-25) [stable]
 - qa: Now builds without compiler warnings with Solaris CC.
 - qa: Added clang analysis.  Fixed cyclomatic complexity output.
@@ -346,8 +358,7 @@ GNU Libtasn1 NEWS                                     -*- outline -*-
 - Initial release
 
 ----------------------------------------------------------------------
-Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011
-Free Software Foundation, Inc.
+Copyright (C) 2002-2012 Free Software Foundation, Inc.
 Copying and distribution of this file, with or without modification,
 are permitted in any medium without royalty provided the copyright
 notice and this notice are preserved.

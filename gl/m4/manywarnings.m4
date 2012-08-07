@@ -1,5 +1,5 @@
-# manywarnings.m4 serial 1
-dnl Copyright (C) 2008-2011 Free Software Foundation, Inc.
+# manywarnings.m4 serial 4
+dnl Copyright (C) 2008-2012 Free Software Foundation, Inc.
 dnl This file is free software; the Free Software Foundation
 dnl gives unlimited permission to copy and/or distribute it,
 dnl with or without modifications, as long as this notice is preserved.
@@ -30,9 +30,9 @@ AC_DEFUN([gl_MANYWARN_COMPLEMENT],
 
 # gl_MANYWARN_ALL_GCC(VARIABLE)
 # -----------------------------
-# Add all documented GCC (currently as per version 4.4) warning
-# parameters to variable VARIABLE.  Note that you need to test them
-# using gl_WARN_ADD if you want to make sure your gcc understands it.
+# Add all documented GCC warning parameters to variable VARIABLE.
+# Note that you need to test them using gl_WARN_ADD if you want to
+# make sure your gcc understands it.
 AC_DEFUN([gl_MANYWARN_ALL_GCC],
 [
   dnl First, check if -Wno-missing-field-initializers is needed.
@@ -143,7 +143,6 @@ AC_DEFUN([gl_MANYWARN_ALL_GCC],
   for gl_manywarn_item in \
     -Wattributes \
     -Wcoverage-mismatch \
-    -Wmultichar \
     -Wunused-macros \
     ; do
     gl_manywarn_set="$gl_manywarn_set $gl_manywarn_item"
@@ -171,7 +170,6 @@ AC_DEFUN([gl_MANYWARN_ALL_GCC],
     -Wsuggest-attribute=noreturn \
     -Wsuggest-attribute=pure \
     -Wtrampolines \
-    -Wunsuffixed-float-constants \
     ; do
     gl_manywarn_set="$gl_manywarn_set $gl_manywarn_item"
   done

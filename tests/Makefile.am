@@ -1,6 +1,5 @@
 ## Process this file with automake to produce Makefile.in
-# Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
-# 2011 Free Software Foundation, Inc.
+# Copyright (C) 2002-2012 Free Software Foundation, Inc.
 #
 # This file is part of LIBTASN1.
 #
@@ -35,10 +34,10 @@ dist_check_SCRIPTS += threadsafety
 MOSTLYCLEANFILES = Test_parser_ERROR.asn
 
 check_PROGRAMS = Test_parser Test_tree Test_encoding Test_indefinite	\
-	Test_errors Test_simple
+	Test_errors Test_simple Test_overflow
 
 TESTS = Test_parser Test_tree Test_encoding Test_indefinite	\
-	Test_errors Test_simple crlf threadsafety
+	Test_errors Test_simple Test_overflow crlf threadsafety
 
 TESTS_ENVIRONMENT = \
 	ASN1PARSER=$(srcdir)/Test_parser.asn \

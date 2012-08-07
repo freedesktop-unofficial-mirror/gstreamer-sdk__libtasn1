@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-# Copyright (C) 2002-2011 Free Software Foundation, Inc.
+# Copyright (C) 2002-2012 Free Software Foundation, Inc.
 #
 # This file is part of LIBTASN1.
 #
@@ -16,8 +16,8 @@ dnl Process this file with autoconf to produce a configure script.
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-AC_PREREQ(2.61)
-AC_INIT([GNU Libtasn1], [2.11], [help-libtasn1@gnu.org])
+AC_PREREQ([2.61])
+AC_INIT([GNU Libtasn1],[2.13],[help-libtasn1@gnu.org])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS(config.h)
@@ -29,29 +29,24 @@ AM_SILENT_RULES([yes])
 # Interfaces added:                             AGE++
 # Interfaces removed:                           AGE=0
 AC_SUBST(LT_CURRENT, 4)
-AC_SUBST(LT_REVISION, 13)
+AC_SUBST(LT_REVISION, 16)
 AC_SUBST(LT_AGE, 1)
 
 AC_PROG_CC
 gl_EARLY
 lgl_EARLY
 AC_PROG_YACC
-AC_PROG_LN_S
 
 dnl Checks for programs.
-AC_PROG_INSTALL
 AM_MISSING_PROG(HELP2MAN, help2man, $missing_dir)
-
 AC_LIBTOOL_WIN32_DLL
 AM_PROG_LIBTOOL
+GTK_DOC_CHECK(1.2)
 
 AC_CHECK_SIZEOF(unsigned long int, 4)
 AC_CHECK_SIZEOF(unsigned int, 4)
 
 sj_UPDATE_HEADER_VERSION([$srcdir/lib/libtasn1.h])
-
-# Check for gtk-doc.
-GTK_DOC_CHECK(1.2)
 
 # For gnulib compatibility modules.
 gl_INIT

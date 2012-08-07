@@ -1,4 +1,4 @@
-# Copyright (C) 2006-2011  Free Software Foundation, Inc.
+# Copyright (C) 2006-2012  Free Software Foundation, Inc.
 # Author: Simon Josefsson
 #
 # This file is part of LIBTASN1.
@@ -31,6 +31,7 @@ local-checks-to-skip = sc_prohibit_strcmp sc_prohibit_have_config_h	\
 	sc_immutable_NEWS sc_prohibit_magic_number_exit			\
 	sc_bindtextdomain
 VC_LIST_ALWAYS_EXCLUDE_REGEX = ^(maint.mk|gtk-doc.make|build-aux/.*|gl/.*|lib/gllib/.*|lib/glm4/.*|lib/ASN1\.c|m4/pkg.m4|doc/gdoc|windows/.*|doc/fdl-1.3.texi)$$
+update-copyright-env = UPDATE_COPYRIGHT_USE_INTERVALS=1
 
 # Explicit syntax-check exceptions.
 exclude_file_name_regexp--sc_prohibit_empty_lines_at_EOF = ^tests/TestIndef.p12$$
@@ -43,6 +44,7 @@ bootstrap-tools := autoconf,automake,libtool,bison
 gpg_key_ID = b565716f
 
 autoreconf:
+	touch ChangeLog
 	test -f ./configure || autoreconf --install
 
 bootstrap: autoreconf
@@ -117,7 +119,7 @@ gtkdoc-copy:
 	cp -v doc/reference/$(PACKAGE).pdf \
 		doc/reference/html/*.html \
 		doc/reference/html/*.png \
-		doc/reference/html/*.devhelp \
+		doc/reference/html/*.devhelp2 \
 		doc/reference/html/*.css \
 		$(htmldir)/reference/
 
@@ -126,7 +128,7 @@ gtkdoc-upload:
 		cvs add reference || true && \
 		cvs add -kb reference/*.png reference/*.pdf || true && \
 		cvs add reference/*.html reference/*.css \
-			reference/*.devhelp || true && \
+			reference/*.devhelp2 || true && \
 		cvs commit -m "Update." reference/
 
 ChangeLog:
@@ -147,7 +149,6 @@ libtasn14win-upload:
 	cd windows && make -f libtasn14win.mk upload VERSION=$(VERSION)
 
 source:
-	git commit -m Generated. ChangeLog
 	git tag -u b565716f! -m $(VERSION) $(tag)
 
 release-check: syntax-check tarball libtasn14win gendoc-copy gtkdoc-copy coverage coverage-copy clang clang-copy

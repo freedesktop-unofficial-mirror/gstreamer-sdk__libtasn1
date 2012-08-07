@@ -1,18 +1,18 @@
 <html lang="en">
 <head>
-<title>GNU Libtasn1 2.11</title>
+<title>GNU Libtasn1 2.13</title>
 <meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="GNU Libtasn1 2.11">
+<meta name="description" content="GNU Libtasn1 2.13">
 <meta name="generator" content="makeinfo 4.13">
 <link title="Top" rel="top" href="#Top">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
 This manual is for GNU Libtasn1
-(version 2.11, 25 October 2011),
+(version 2.13, 23 January 2012),
 which is a library for Abstract Syntax Notation One (ASN.1) and
 Distinguish Encoding Rules (DER) manipulation.
 
-Copyright (C) 2001-2011 Free Software Foundation, Inc.
+Copyright (C) 2001-2012 Free Software Foundation, Inc.
 
      Permission is granted to copy, distribute and/or modify this
      document under the terms of the GNU Free Documentation License,
@@ -79,7 +79,7 @@ dd, li {
 --></style>
 </head>
 <body>
-<h1 class="settitle">GNU Libtasn1 2.11</h1>
+<h1 class="settitle">GNU Libtasn1 2.13</h1>
 <div class="contents">
 <h2>Table of Contents</h2>
 <ul>
@@ -128,11 +128,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#dir">(dir)</a>
 <h2 class="unnumbered">Libtasn1</h2>
 
 <p>This manual is for GNU Libtasn1
-(version 2.11, 25 October 2011),
+(version 2.13, 23 January 2012),
 which is a library for Abstract Syntax Notation One (ASN.1) and
 Distinguish Encoding Rules (DER) manipulation.
 
-   <p>Copyright &copy; 2001-2011 Free Software Foundation, Inc.
+   <p>Copyright &copy; 2001-2012 Free Software Foundation, Inc.
 
    <blockquote>
 Permission is granted to copy, distribute and/or modify this document
@@ -1082,7 +1082,7 @@ length needed.
 <p><a name="asn1_005fget_005flength_005fder"></a>
 
 <div class="defun">
-&mdash; Function: signed long <b>asn1_get_length_der</b> (<var>const unsigned char * der, int der_len, int * len</var>)<var><a name="index-asn1_005fget_005flength_005fder-28"></a></var><br>
+&mdash; Function: long <b>asn1_get_length_der</b> (<var>const unsigned char * der, int der_len, int * len</var>)<var><a name="index-asn1_005fget_005flength_005fder-28"></a></var><br>
 <blockquote><p><var>der</var>: DER data to decode.
 
         <p><var>der_len</var>: Length of DER data to decode.
@@ -1092,7 +1092,8 @@ length needed.
         <p>Extract a length field from DER data.
 
         <p><strong>Returns:</strong> Return the decoded length value, or -1 on indefinite
-length, or -2 when the value was too big. 
+length, or -2 when the value was too big to fit in a int, or -4
+when the decoded length value plus <code>len</code> would exceed <code>der_len</code>. 
 </p></blockquote></div>
 
 <h4 class="subheading">asn1_get_tag_der</h4>
@@ -1121,7 +1122,7 @@ length, or -2 when the value was too big.
 <p><a name="asn1_005fget_005flength_005fber"></a>
 
 <div class="defun">
-&mdash; Function: signed long <b>asn1_get_length_ber</b> (<var>const unsigned char * ber, int ber_len, int * len</var>)<var><a name="index-asn1_005fget_005flength_005fber-30"></a></var><br>
+&mdash; Function: long <b>asn1_get_length_ber</b> (<var>const unsigned char * ber, int ber_len, int * len</var>)<var><a name="index-asn1_005fget_005flength_005fber-30"></a></var><br>
 <blockquote><p><var>ber</var>: BER data to decode.
 
         <p><var>ber_len</var>: Length of BER data to decode.

@@ -1,6 +1,5 @@
 /*
- * Copyright (C) 2000, 2001, 2006, 2007, 2008, 2009, 2010, 2011 Free
- * Software Foundation, Inc.
+ * Copyright (C) 2000-2012 Free Software Foundation, Inc.
  *
  * This file is part of LIBTASN1.
  *
@@ -448,11 +447,11 @@ create_certificate (ASN1_TYPE cert_def, unsigned char *der, int *der_len)
 		      str, 1);
   result =
     asn1_create_element (cert_def, "PKIX1Implicit88.Dss-Parms", &param);
-  str2 = (const unsigned char *) "\xd4\x38";		/* only an example */
+  str2 = (const unsigned char *) "\xd4\x38";	/* only an example */
   result = asn1_write_value (param, "p", str2, 128);
-  str2 = (const unsigned char *) "\xd4\x38";		/* only an example */
+  str2 = (const unsigned char *) "\xd4\x38";	/* only an example */
   result = asn1_write_value (param, "q", str2, 20);
-  str2 = (const unsigned char *) "\xd4\x38";		/* only an example */
+  str2 = (const unsigned char *) "\xd4\x38";	/* only an example */
   result = asn1_write_value (param, "g", str2, 128);
   *der_len = max_len;
   result = asn1_der_coding (param, "", der, der_len, errorDescription);
@@ -464,7 +463,7 @@ create_certificate (ASN1_TYPE cert_def, unsigned char *der, int *der_len)
 
 
   /* subjectPublicKey */
-  str2 = (const unsigned char *) "\x02\x81";		/* only an example */
+  str2 = (const unsigned char *) "\x02\x81";	/* only an example */
   result =
     asn1_write_value (cert1,
 		      "tbsCertificate.subjectPublicKeyInfo.subjectPublicKey",

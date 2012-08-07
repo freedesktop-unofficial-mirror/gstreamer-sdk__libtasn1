@@ -1,6 +1,6 @@
 @subheading asn1_get_length_ber
 @anchor{asn1_get_length_ber}
-@deftypefun {signed long} {asn1_get_length_ber} (const unsigned char * @var{ber}, int @var{ber_len}, int * @var{len})
+@deftypefun {long} {asn1_get_length_ber} (const unsigned char * @var{ber}, int @var{ber_len}, int * @var{len})
 @var{ber}: BER data to decode.
 
 @var{ber_len}: Length of BER data to decode.
